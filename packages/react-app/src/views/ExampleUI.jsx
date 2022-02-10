@@ -57,7 +57,7 @@ export default function ExampleUI({
               console.log(await result);
             }}
           >
-            Set Purpose!
+            {/* Set Purpose! */}
           </Button>
         </div>
         <Divider />
@@ -107,7 +107,7 @@ export default function ExampleUI({
               here we are sending value straight to the contract's address:
             */
               tx({
-                to: writeContracts.YourContract.address,
+                to: writeContracts.TinyKingdomsMetadata.address,
                 value: utils.parseEther("0.001"),
               });
               /* this should throw an error about "no fallback nor receive function" until you add it */
@@ -120,10 +120,10 @@ export default function ExampleUI({
           <Button
             onClick={() => {
               /* look how we call setPurpose AND send some value along */
-              tx(
-                writeContracts.YourContract.setPurpose("💵 Paying for this one!", {
-                  value: utils.parseEther("0.001"),
-                }),
+              tx( readContracts.TinyKingdomsMetadata.getFlag(1),{
+                // writeContracts.YourContract.setPurpose("💵 Paying for this one!", {
+                  // value: utils.parseEther("0.001"),
+                },
               );
               /* this will fail until you make the setPurpose function payable */
             }}
